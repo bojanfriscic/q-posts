@@ -1,7 +1,9 @@
+import Layout from './hoc/Layout';
+
 function App() {
   return (
     <div className="App">
-      app test
+      <Layout />
     </div>
   );
 }
