@@ -6,7 +6,12 @@ import { IPost } from '../../interfaces/IPost';
 import { IUser } from '../../interfaces/IUser';
 import { IComment } from '../../interfaces/IComment';
 
-const Posts: React.FunctionComponent = () => {
+interface IPostsComponent {
+    filter: string;
+};
+
+const Posts = (props: IPostsComponent) => {
+    const { filter } = props;
     const [data, setData] = useState<Array<IData>>([]);
     const [isLoading, setIsLoading] = useState(true);
 
@@ -16,8 +21,9 @@ const Posts: React.FunctionComponent = () => {
 
     useEffect(() => {
         const temp = [] as IData[];
+        const filteredPosts = posts.filter(post => post.title.toLocaleLowerCase().includes(filter.toLocaleLowerCase()));
 
-        posts.forEach(post => {
+        filteredPosts.forEach(post => {
             const { id, userId } = post;
             const authorData = users.find(user => user.id === id);
             const author = `${authorData?.username} (${authorData?.name})`;
@@ -34,7 +40,7 @@ const Posts: React.FunctionComponent = () => {
 
         setData(temp);
         setIsLoading(false);
-    }, [posts, users, comments]);
+    }, [posts, users, comments, filter]);
 
 
     return (
