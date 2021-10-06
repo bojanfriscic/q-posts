@@ -5,6 +5,7 @@ import { IData } from '../../interfaces/IData';
 import { IPost } from '../../interfaces/IPost';
 import { IUser } from '../../interfaces/IUser';
 import { IComment } from '../../interfaces/IComment';
+import PostsUI from './components/PostsUI';
 
 interface IPostsComponent {
     filter: string;
@@ -44,16 +45,7 @@ const Posts = (props: IPostsComponent) => {
 
 
     return (
-        <section>
-            { data.map((post: IData) => (
-                <article key={post.id}>
-                    <h2>{post.title}</h2>
-                    <small>by {post.author}</small>
-                    <small>Comments: {post.numComments}</small>
-                    <hr />
-                </article>
-            )) }
-        </section>
+        <PostsUI data={data} isLoading={isLoading} />
     )
 };
 
