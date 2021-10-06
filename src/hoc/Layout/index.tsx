@@ -1,23 +1,14 @@
-import React, { useState } from 'react';
-import FilterContext from '../../context/FilterContext';
+import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 import Header from '../../components/Header';
-import Filter from '../../components/Filter';
-import Posts from '../../components/Posts';
+import Routes from '../Routes';
 
 const Layout: React.FunctionComponent = () => {
-    const [filterString, setFilterString] = useState('');
-    const value = { filterString, setFilterString };
-
     return (
-        <>
+        <Router>
             <Header />
-            <main>
-                <FilterContext.Provider value={value}>
-                    <Filter />
-                    <Posts filter={filterString} />
-                </FilterContext.Provider>
-            </main>
-        </>
+            <Routes />
+        </Router>
     );
 }
 
