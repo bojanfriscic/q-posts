@@ -28,8 +28,8 @@ const Posts = (props: IPostsComponent) => {
         const filteredPosts = posts.filter(post => post.title.toLocaleLowerCase().includes(filter.toLocaleLowerCase()));
 
         filteredPosts.forEach(post => {
-            const { id, userId } = post;
-            const authorData = users.find(user => user.id === id);
+            const { userId } = post;
+            const authorData = users.find(user => user.id === post.userId);
             const author = `${authorData?.username} (${authorData?.name})`;
             const numComments = comments.filter(comment => comment.postId === userId).length
             
