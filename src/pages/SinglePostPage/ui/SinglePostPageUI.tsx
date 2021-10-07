@@ -1,5 +1,6 @@
 import { IComment } from '../../../interfaces/IComment';
 import { useLogger } from '../../../hooks/useLogger';
+import Container from '../../../hoc/Container';
 import Title from '../../../components/Title';
 import Author from '../../../components/Author';
 import PostBody from '../../../components/PostBody';
@@ -27,16 +28,17 @@ const SinglePostPageUI = (props: SinglePostPageUIComponent) => {
             <Title content={title} level={1} />
             <Author name={author} />
             <PostBody content={body} />
-            <hr />
             <Comments comments={comments} />
         </>
     );
     
     return (
         <article className="c-single-post">
-            {renderLoading}
-            {renderError}
-            {renderContent}
+            <Container>
+                {renderLoading}
+                {renderError}
+                {renderContent}
+            </Container>
         </article>
     );
 };

@@ -21,8 +21,12 @@ const Post = (props: IPostComponent) => {
                 </Link>
             </h2>
             <Author name={author} />
-            <small className="c-post__comments">Comments: {numComments}</small>
-            <hr />
+            <small className="c-post__comments">
+                <span className="c-post__comments-badge">
+                    {numComments}
+                </span>
+                comments
+            </small>
         </article>
     )
 };

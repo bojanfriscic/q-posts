@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import FilterContext from '../../context/FilterContext';
 import { useLogger } from '../../hooks/useLogger';
+import Container from '../../hoc/Container';
 import Filter from '../../components/Filter';
 import Posts from '../../components/Posts';
 
@@ -11,8 +12,10 @@ const PostsPage = () => {
 
     return (
         <FilterContext.Provider value={value}>
-            <Filter />
-            <Posts filter={filterString} />
+            <Container>
+                <Filter />
+                <Posts filter={filterString} />
+            </Container>
         </FilterContext.Provider>
     );
 };

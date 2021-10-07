@@ -19,7 +19,6 @@ const Filter = () => {
                 className="c-filter__input" 
                 placeholder="Filter posts by title" 
             />
-            <hr />
         </section>
     )
 };

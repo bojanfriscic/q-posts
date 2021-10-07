@@ -9,7 +9,7 @@ const Author = (props: IAuthorComponent) => {
     useLogger({componentName: 'Author'});
 
     return (
-        <small className="c-author">by {name}</small>
+        <span className="c-author">by {name}</span>
     )
 };
 

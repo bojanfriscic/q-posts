@@ -1,0 +1,13 @@
+.c-header {
+    background-color: $color-primary;
+    padding: 1.5rem 0;
+
+    &__link {
+        color: $color-txt-light;
+        font-size: 1.5rem;
+
+        &:hover {
+            color: $color-secondary;
+        }
+    }
+}
