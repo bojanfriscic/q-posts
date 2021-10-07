@@ -5,7 +5,7 @@ import { IData } from '../../interfaces/IData';
 import { IPost } from '../../interfaces/IPost';
 import { IUser } from '../../interfaces/IUser';
 import { IComment } from '../../interfaces/IComment';
-import PostsUI from './components/PostsUI';
+import PostsUI from './ui/PostsUI';
 
 interface IPostsComponent {
     filter: string;
@@ -28,7 +28,7 @@ const Posts = (props: IPostsComponent) => {
             const { id, userId } = post;
             const authorData = users.find(user => user.id === id);
             const author = `${authorData?.username} (${authorData?.name})`;
-            const numComments = comments.filter(comment => comment.id === userId).length
+            const numComments = comments.filter(comment => comment.postId === userId).length
             
             temp.push(
                 {
