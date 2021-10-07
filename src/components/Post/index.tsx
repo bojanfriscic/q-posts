@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import Author from '../Author';
 
 interface IPostComponent {
     id: number;
@@ -17,7 +18,7 @@ const Post = (props: IPostComponent) => {
                     {title}
                 </Link>
             </h2>
-            <small className="c-post__author">by {author}</small>
+            <Author name={author} />
             <small className="c-post__comments">Comments: {numComments}</small>
             <hr />
         </article>

@@ -1,11 +1,13 @@
 import { IComment } from '../../../interfaces/IComment';
-import Title from '../../../components/Title'
+import Title from '../../../components/Title';
+import Author from '../../../components/Author';
 import PostBody from '../../../components/PostBody';
 import Comments from '../../../components/Comments';
 import Loading from '../../../components/Loading';
 import Error from '../../../components/Error';
 
 interface SinglePostPageUIComponent {
+    author: string;
     title: string;
     body: string;
     comments: Array<IComment>;
@@ -14,13 +16,14 @@ interface SinglePostPageUIComponent {
 }
 
 const SinglePostPageUI = (props: SinglePostPageUIComponent) => {
-    const { title, body, comments, hasError, isLoading } = props;
+    const { author, title, body, comments, hasError, isLoading } = props;
 
     const renderLoading = isLoading && <Loading />;
     const renderError = hasError && <Error />;
     const renderContent = !isLoading && (
         <>
             <Title content={title} level={1} />
+            <Author name={author} />
             <PostBody content={body} />
             <hr />
             <Comments comments={comments} />
