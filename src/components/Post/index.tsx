@@ -1,4 +1,5 @@
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import { useLogger } from '../../hooks/useLogger';
 import Author from '../Author';
 
 interface IPostComponent {
@@ -10,6 +11,7 @@ interface IPostComponent {
 
 const Post = (props: IPostComponent) => {
     const { id, title, author, numComments } = props;
+    useLogger({componentName: 'Post'});
 
     return (
         <article className="c-post">

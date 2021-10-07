@@ -1,9 +1,12 @@
 import { Switch, Route, Redirect } from 'react-router-dom';
+import { useLogger } from '../../hooks/useLogger';
 import PostsPage from '../../pages/PostsPage';
 import SinglePostPage from '../../pages/SinglePostPage';
 import FourOFourPage from '../../pages/FourOFourPage';
 
 const Routes = () => {
+    useLogger({ componentName: 'Routes' });
+
     return (
         <main>
             <Switch>

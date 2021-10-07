@@ -1,9 +1,12 @@
+import { useLogger } from '../../hooks/useLogger';
+
 interface IPostBodyComponent {
     content: string;
 }
 
 const PostBody = (props: IPostBodyComponent) => {
     const { content } = props;
+    useLogger({componentName: 'PostBody'});
 
     return (
         <div className="c-post-body">

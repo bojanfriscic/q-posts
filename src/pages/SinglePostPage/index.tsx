@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useFetch } from '../../hooks/useFetch';
+import { useLogger } from '../../hooks/useLogger';
 import { IPostRouteParams } from '../../interfaces/IPostRouteParams';
 import { IPost } from '../../interfaces/IPost';
 import { IComment } from '../../interfaces/IComment';
@@ -20,6 +21,8 @@ const SinglePostPage = () => {
     const [body, setBody] = useState('');   
     const [isLoading, setIsLoading] = useState(true);
     const [hasError, setHasError] = useState(false);
+
+    useLogger({ componentName: 'SinglePostPage' });
 
     useEffect(() => {
         fetch(postApiUrl)

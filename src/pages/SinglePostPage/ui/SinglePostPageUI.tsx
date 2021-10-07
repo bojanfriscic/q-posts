@@ -1,4 +1,5 @@
 import { IComment } from '../../../interfaces/IComment';
+import { useLogger } from '../../../hooks/useLogger';
 import Title from '../../../components/Title';
 import Author from '../../../components/Author';
 import PostBody from '../../../components/PostBody';
@@ -17,6 +18,7 @@ interface SinglePostPageUIComponent {
 
 const SinglePostPageUI = (props: SinglePostPageUIComponent) => {
     const { author, title, body, comments, hasError, isLoading } = props;
+    useLogger({ componentName: 'SinglePostPageUI' });
 
     const renderLoading = isLoading && <Loading />;
     const renderError = hasError && <Error />;

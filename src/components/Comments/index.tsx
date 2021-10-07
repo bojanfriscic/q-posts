@@ -1,4 +1,5 @@
 import { IComment } from '../../interfaces/IComment';
+import { useLogger } from '../../hooks/useLogger';
 import Comment from '../Comment';
 
 interface ICommentsComponent {
@@ -7,6 +8,7 @@ interface ICommentsComponent {
 
 const Comments = (props: ICommentsComponent) => {
     const { comments } = props;
+    useLogger({componentName: 'Comments'});
 
     const renderNoComments = comments.length === 0 && (
         <p className="c-comments__no-comments">There are no comments to display.</p>

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useFetch } from '../../hooks/useFetch';
+import { useLogger } from '../../hooks/useLogger';
 import { api } from '../../config/api';
 import { IData } from '../../interfaces/IData';
 import { IPost } from '../../interfaces/IPost';
@@ -19,6 +20,8 @@ const Posts = (props: IPostsComponent) => {
     const [users] = useFetch<IUser>(api.users);
     const [posts] = useFetch<IPost>(api.posts);
     const [comments] = useFetch<IComment>(api.comments);
+
+    useLogger({componentName: 'Posts'});
 
     useEffect(() => {
         const temp = [] as IData[];

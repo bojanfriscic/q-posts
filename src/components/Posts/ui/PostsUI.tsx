@@ -1,4 +1,5 @@
 import { IData } from '../../../interfaces/IData';
+import { useLogger } from '../../../hooks/useLogger';
 import Loading from '../../Loading';
 import Error from '../../Error';
 import Post from '../../Post';
@@ -10,6 +11,7 @@ interface IPostsUIComponent {
 
 const PostsUI = (props: IPostsUIComponent) => {
     const { data, isLoading } = props;
+    useLogger({componentName: 'PostsUI'});
 
     const renderLoading = isLoading && <Loading />;
 

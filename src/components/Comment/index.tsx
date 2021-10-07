@@ -1,4 +1,5 @@
 import { IComment } from '../../interfaces/IComment';
+import { useLogger } from '../../hooks/useLogger';
 
 interface ICommentComponent {
     comment: IComment
@@ -7,6 +8,7 @@ interface ICommentComponent {
 const Comment = (props: ICommentComponent) => {
     const { comment } = props;
     const { name, body, email } = comment;
+    useLogger({componentName: 'Comment'});
 
     return (
         <article className="c-comment">

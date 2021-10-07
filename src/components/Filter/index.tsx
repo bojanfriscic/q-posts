@@ -1,8 +1,10 @@
 import { ChangeEvent, useContext } from 'react';
 import FilterContext from '../../context/FilterContext';
+import { useLogger } from '../../hooks/useLogger';
 
 const Filter = () => {
     const { filterString, setFilterString } =  useContext(FilterContext);
+    useLogger({componentName: 'Filter'});
 
     const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
         setFilterString(e.target.value);
