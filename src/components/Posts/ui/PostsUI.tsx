@@ -1,16 +1,16 @@
 import { IData } from '../../../interfaces/IData';
 import { useLogger } from '../../../hooks/useLogger';
 import Loading from '../../Loading';
-import Error from '../../Error';
 import Post from '../../Post';
 
 interface IPostsUIComponent {
     data: Array<IData>;
     isLoading: boolean;
+    isFiltering: boolean;
 };
 
 const PostsUI = (props: IPostsUIComponent) => {
-    const { data, isLoading } = props;
+    const { data, isLoading, isFiltering } = props;
     useLogger({componentName: 'PostsUI'});
 
     const renderLoading = isLoading && <Loading />;
@@ -25,13 +25,15 @@ const PostsUI = (props: IPostsUIComponent) => {
         />
     ));
 
-    const renderError = !isLoading && data.length === 0 && <Error />;
+    const renderNoPosts = !isLoading && !isFiltering && data.length === 0 && (
+        <p>There are no posts to display</p>
+    );
 
     return (
         <section className="c-posts">
             {renderLoading}
             {renderData}
-            {renderError}
+            {renderNoPosts}
         </section>
     );
 };

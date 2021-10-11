@@ -10,7 +10,7 @@ const useLogger = (props: IUseLoggerHook) => {
     const { helloMessage } = useContext(LoggerContext);
 
     useEffect(() => {
-        console.log(`%c${helloMessage} from ${componentName}`, 'font-weight: 700');
+        console.log(`%c${helloMessage} ${componentName}`, 'font-weight: 700');
     }, [helloMessage, componentName])
 }
 
