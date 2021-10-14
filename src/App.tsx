@@ -1,10 +1,10 @@
 import { FC } from 'react';
-import { Query } from './core/hoc/Query';
+import { QueryProvider } from './core/hoc/QueryProvider';
 
 const App: FC = () => {
   return (
     <div className="App">
-      <Query />
+      <QueryProvider />
     </div>
   );
 }

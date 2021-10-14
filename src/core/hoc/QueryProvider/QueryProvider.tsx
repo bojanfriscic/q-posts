@@ -3,7 +3,7 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import { Layout } from '../Layout';
 
-const Query: FC = () => {
+const QueryProvider: FC = () => {
     const queryClient = new QueryClient();
 
     return (
@@ -14,4 +14,4 @@ const Query: FC = () => {
     )
 };
 
-export default Query;
+export default QueryProvider;

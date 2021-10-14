@@ -1,7 +1,7 @@
 import { createContext } from 'react';
 import { IDataContext } from '../interfaces/IData';
 
-const initialValues = {
+const initialValues: IDataContext = {
     data: [],
     isLoading: true,
     hasError: false
