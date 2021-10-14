@@ -1,7 +1,10 @@
-function App() {
+import { FC } from 'react';
+import { Query } from './core/hoc/Query';
+
+const App: FC = () => {
   return (
     <div className="App">
-      app test
+      <Query />
     </div>
   );
 }
