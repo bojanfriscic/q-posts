@@ -1,0 +1,40 @@
+.postComponent {
+    padding: 0 0.5rem 1.5rem;
+
+    &:not(:last-child) {
+        margin-bottom: 1.5rem;
+        border-bottom: 1px solid #aaa;
+    }
+
+    &__link {
+        color: #333;
+        text-decoration: none;
+        transition: color 300ms ease-in-out;
+
+        &:hover {
+            color: #777;
+        }
+    }
+
+    &__meta {
+        display: flex;
+        align-items: center;
+    }
+
+    &__author {
+        display: inline-flex;
+        margin-right: 0.5em;
+    }
+
+    &__commentsBadge {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 1.5rem;
+        height: 1.5rem;
+        background-color: crimson;
+        border-radius: 50%;
+        color: white;
+        font-weight: 700;
+    }
+}
