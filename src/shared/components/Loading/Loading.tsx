@@ -1,10 +1,18 @@
-import { FC } from 'react';
 import styles from './scss/Loading.module.scss';
 
-const Loading: FC = () => {
+interface ILoadingProps {
+    name?: string;
+}
+
+const Loading = (props: ILoadingProps) => {
+    const { name } = props;
     const { loadingComponent } = styles;
 
-    return <div className={loadingComponent}>Loading...</div>;
+    const renderLoadingString = name 
+        ? `Loading the ${name}...`
+        : 'Loading...'
+
+    return <div className={loadingComponent}>{renderLoadingString}</div>;
 };
 
 export default Loading;

@@ -5,6 +5,7 @@ import { IDataObject } from '../../interfaces/IData';
 import { IPost } from '../../interfaces/IPost';
 import { IComment } from '../../interfaces/IComment';
 import { IUser } from '../../interfaces/IUser';
+import { QUERY_KEYS } from '../../enums/QueryKeysEnum';
 import { DataContext } from '../../context/DataContext';
 
 const DataContextProvider: FC = ({ children }) => {
@@ -12,7 +13,7 @@ const DataContextProvider: FC = ({ children }) => {
     const [hasError, setHasError] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
 
-    const { data: posts, isLoading: postsLoading, isError: postsError } = useQuery<Array<IPost>>('posts', api.getPosts);
+    const { data: posts, isLoading: postsLoading, isError: postsError } = useQuery<Array<IPost>>(QUERY_KEYS.POSTS, api.getPosts);
     const hasPosts = posts !== undefined && !postsLoading;
     const postsDep = useMemo(() => {
         return {
@@ -22,7 +23,7 @@ const DataContextProvider: FC = ({ children }) => {
         };
     }, [posts, hasPosts, postsError]);
 
-    const { data: users, isLoading: usersLoading, isError: usersError } = useQuery<Array<IUser>>('users', api.getUsers, {
+    const { data: users, isLoading: usersLoading, isError: usersError } = useQuery<Array<IUser>>(QUERY_KEYS.USERS, api.getUsers, {
         enabled: !!hasPosts
     });
     const hasUsers = users !== undefined && !usersLoading;
@@ -34,7 +35,7 @@ const DataContextProvider: FC = ({ children }) => {
         };
     }, [users, hasUsers, usersError]);
 
-    const { data: comments, isLoading: commentsLoading, isError: commentsError } = useQuery<Array<IComment>>('comments', api.getComments, {
+    const { data: comments, isLoading: commentsLoading, isError: commentsError } = useQuery<Array<IComment>>(QUERY_KEYS.COMMENTS, api.getComments, {
         enabled: !!hasPosts && !!hasUsers
     });
     const hasComments = comments !== undefined && !commentsLoading;
