@@ -61,6 +61,7 @@ const SinglePostPage: FC = () => {
     }, [data, id, queryClient]);
 
     const propsData = {
+        id: +id,
         title,
         body,
         author,

@@ -1,9 +1,13 @@
+import { useState } from 'react';
 import { IComment } from '../../../../core/interfaces/IComment';
 import { Loading } from '../../../../shared/components/Loading';
 import { Error } from '../../../../shared/components/Error';
 import { Comment } from '../../../../shared/components/Comment';
+import { AddComment } from '../../../../shared/components/AddComment';
+import styles from '../scss/SinglePostPage.module.scss';
 
 interface ISinglePostPageProps {
+    id: number;
     title: string;
     body: string;
     author: string;
@@ -15,7 +19,11 @@ interface ISinglePostPageProps {
 };
 
 const SinglePostPageUI = (props: ISinglePostPageProps) => {
+    const [showAddForm, setShowAddForm] = useState(true);
+    const { singlePostPage__commentsHeading } = styles;
+
     const { 
+        id,
         title, 
         body, 
         author, 
@@ -36,6 +44,13 @@ const SinglePostPageUI = (props: ISinglePostPageProps) => {
         </>
     );
 
+    const addCommentProps = {
+        setShowAddForm,
+        postId: id
+    };
+    const renderAddForm = showAddForm && <AddComment {...addCommentProps} />;
+    const addButtonLabel = showAddForm ? 'Cancel' : 'Add Comment';
+
     const renderCommentsLoading = isCommentsLoading && <Loading name='Comments' />;
     const renderCommentsError = !isCommentsLoading && hasCommentsError && <Error />;
     const renderComments = !isPostLoading && !hasCommentsError && comments.map(comment => <Comment key={comment.id} {...comment} />)
@@ -49,7 +64,15 @@ const SinglePostPageUI = (props: ISinglePostPageProps) => {
             </section>
             <hr />
             <section>
-                <h2>Comments</h2>
+                <h2 className={singlePostPage__commentsHeading}>
+                    Comments 
+                    <button onClick={() => setShowAddForm(!showAddForm)}>
+                        {addButtonLabel}
+                    </button>
+                </h2>
+
+                {renderAddForm}
+
                 {renderCommentsLoading}
                 {renderCommentsError}
                 {renderComments}
