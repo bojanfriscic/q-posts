@@ -1,6 +1,7 @@
 import { useContext, ChangeEvent } from 'react';
 import { NewPostContext } from "../../../../modules/pages/AddPostPage/context/NewPostContext";
 import { IUser } from '../../../../core/interfaces/IUser';
+import styles from '../scss/AddPost.module.scss';
 
 interface IUserProps {
     users: Array<IUser>;
@@ -8,8 +9,15 @@ interface IUserProps {
 
 const UserSelect = (props: IUserProps) => {
     const { users } = props;
+
     const context = useContext(NewPostContext);
-    const { setUserId } = context;
+    const { userId, setUserId } = context;
+
+    const { 
+        addPostComponent__formGroup, 
+        addPostComponent__label,
+        addPostComponent__select
+    } = styles;
 
     const handleOnChange = (e: ChangeEvent<HTMLSelectElement>) => {
         const id = +e.target.value; 
@@ -19,7 +27,7 @@ const UserSelect = (props: IUserProps) => {
     const renderOptions = users && users.length > 0 
         ? (
             <>
-                <option value={undefined} disabled>Select an user</option>
+                <option value={-1} disabled>Select an user</option>
                 {users.map(user => (
                     <option key={user.id} value={user.id}>
                         {`${user.name} (${user.username})`}
@@ -30,9 +38,16 @@ const UserSelect = (props: IUserProps) => {
         : <option>Loading users...</option>;
 
     return (
-        <div>
-            <label htmlFor="user-select">Select User</label>
-            <select id="user-select" onChange={handleOnChange}>
+        <div className={addPostComponent__formGroup}>
+            <label htmlFor="user-select" className={addPostComponent__label}>
+                Select User
+            </label>
+            <select 
+                id="user-select" 
+                className={addPostComponent__select}
+                onChange={handleOnChange}
+                value={userId ? userId : -1}
+            >
                 {renderOptions}
             </select>
         </div>

@@ -1,0 +1,17 @@
+.message {
+    margin-bottom: 1.5rem;
+    padding: 0.75rem;
+    border: 1px solid #000;
+    border-radius: 3px;
+
+    &--error {
+        background-color: crimson;
+        border-color: brown;
+        color: #fff;
+    }
+
+    &--success {
+        background-color: aquamarine;
+        border-color: darkseagreen;
+    }
+}

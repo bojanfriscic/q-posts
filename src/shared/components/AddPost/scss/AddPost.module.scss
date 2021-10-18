@@ -1,0 +1,35 @@
+@use '../../../../styles/components/form-elements';
+@use '../../../../styles/components/form-group';
+@use '../../../../styles//components/message';
+
+.addPostComponent {
+    &__formGroup {
+        @extend .form-group;
+    }
+
+    &__label {
+        @extend .label;
+    }
+
+    &__select {
+        @extend .select;
+    }
+
+    &__input {
+        @extend .input;
+    }
+
+    &__textarea {
+        @extend .textarea;
+    }
+
+    &__messageError {
+        @extend .message;
+        @extend .message--error;
+    }
+
+    &__messageSuccess {
+        @extend .message;
+        @extend .message--success;
+    }
+}

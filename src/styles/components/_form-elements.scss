@@ -1,0 +1,25 @@
+%input-element {
+    width: 100%;
+    padding: 0.5rem;
+    box-sizing: border-box;
+}
+
+.label {
+    display: inline-block;
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+}
+
+.select {
+    @extend %input-element;
+}
+
+.input {
+    @extend %input-element;
+}
+
+.textarea {
+    @extend %input-element;
+
+    font-family: inherit;
+}
