@@ -1,0 +1,21 @@
+.header {
+    background-color: #333;
+    padding: 1.5rem 0;
+
+    &__nav {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__navLink {
+        color: #eee;
+        font-size: 1.25rem;
+        font-weight: 700;
+        text-decoration: none;
+        transition: color 300ms ease-in-out;
+
+        &:hover {
+            color: #fff;
+        }
+    }
+}

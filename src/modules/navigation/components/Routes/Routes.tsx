@@ -2,6 +2,7 @@ import { FC } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { ROUTES } from '../../enums/RoutesEnum';
 import { PostsPage } from '../../../pages/PostsPage';
+import { AddPostsPage } from '../../../pages/AddPostPage';
 import { SinglePostPage } from '../../../pages/SinglePostPage';
 import { ErrorPage } from '../../../pages/ErrorPage';
 
@@ -17,6 +18,11 @@ const Routes: FC = () => {
                 exact
                 path={ROUTES.POSTS}
                 render={() => <PostsPage />}
+            />
+            <Route
+                exact
+                path={ROUTES.ADD_POST}
+                render={() => <AddPostsPage />}
             />
             <Route 
                 path={`${ROUTES.SINGLE_POST}/:id`}

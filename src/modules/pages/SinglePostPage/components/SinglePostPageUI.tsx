@@ -19,7 +19,7 @@ interface ISinglePostPageProps {
 };
 
 const SinglePostPageUI = (props: ISinglePostPageProps) => {
-    const [showAddForm, setShowAddForm] = useState(true);
+    const [showAddForm, setShowAddForm] = useState(false);
     const { singlePostPage__commentsHeading } = styles;
 
     const { 
