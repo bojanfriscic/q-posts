@@ -8,11 +8,12 @@ import styles from '../scss/AddPost.module.scss';
 interface IAddPostUIProps {
     users: Array<IUser>;
     hasDataError: boolean;
-    isLoading: boolean,
-    isSuccess: boolean,
-    handleOnSubmit: (e: FormEvent<HTMLFormElement>) => void,
-    clearForm: () => void,
-    handleCloseMessage: (s: string) => void
+    isLoading: boolean;
+    isSuccess: boolean;
+    isFailure: boolean;
+    handleOnSubmit: (e: FormEvent<HTMLFormElement>) => void;
+    clearForm: () => void;
+    handleCloseMessage: (s: string) => void;
 };
 
 const AddPostUI = (props: IAddPostUIProps) => {
@@ -21,6 +22,7 @@ const AddPostUI = (props: IAddPostUIProps) => {
         hasDataError, 
         isLoading,
         isSuccess,
+        isFailure,
         handleOnSubmit,
         clearForm,
         handleCloseMessage
@@ -72,12 +74,21 @@ const AddPostUI = (props: IAddPostUIProps) => {
                 Success! Your post has been added.
             </p>;
 
+    const renderFailure = isFailure 
+        &&  <p 
+                onClick={() => handleCloseMessage(MESSAGE_TYPE.FAILURE)}
+                className={addPostComponent__messageError}
+            >
+                There has been an error, your post wasn't added.
+            </p>
+
     return (
         <>
             {renderForm}
             {renderLoading}
             {renderError}
             {renderSuccess}
+            {renderFailure}
         </>
     );
 };

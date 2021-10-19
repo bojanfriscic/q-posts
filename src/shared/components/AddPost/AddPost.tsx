@@ -24,6 +24,7 @@ const AddPost: FC = () => {
     const [id] = useState(Math.floor(Math.random() * (200 - 100) + 100));
     const [hasDataError, setHasDataError] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
+    const [isFailure, setIsFailure] = useState(false);
 
     const reqObject = {
         id,
@@ -42,6 +43,10 @@ const AddPost: FC = () => {
     const { isLoading, mutate } = useMutation(api.postPost, {
         onSuccess: () => {
             setIsSuccess(true);
+        },
+        onError: () => {
+            setIsFailure(true);
+            console.error('Error - your post could not be added.')
         }
     });
 
@@ -68,10 +73,11 @@ const AddPost: FC = () => {
         e.preventDefault();
 
         setIsSuccess(false);
+        setIsFailure(false);
 
         if (validate(reqObject)) {
             mutate(reqObject);
-            clearForm();
+            if (isSuccess) clearForm();
         }
         
     };
@@ -84,6 +90,9 @@ const AddPost: FC = () => {
             case MESSAGE_TYPE.SUCCESS:
                 setIsSuccess(false);
                 break;
+            case MESSAGE_TYPE.FAILURE:
+                setIsFailure(true);
+                break;
             default:
                 return;
         }
@@ -94,6 +103,7 @@ const AddPost: FC = () => {
         hasDataError,
         isLoading,
         isSuccess,
+        isFailure,
         handleOnSubmit,
         clearForm,
         handleCloseMessage

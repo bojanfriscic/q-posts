@@ -1,4 +1,5 @@
 export enum MESSAGE_TYPE {
     SUCCESS = 'success',
-    ERROR = 'error'
+    ERROR = 'error',
+    FAILURE = 'failure'
 };
