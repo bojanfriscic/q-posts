@@ -43,6 +43,7 @@ const AddPost: FC = () => {
     const { isLoading, mutate } = useMutation(api.postPost, {
         onSuccess: () => {
             setIsSuccess(true);
+            clearForm();
         },
         onError: () => {
             setIsFailure(true);
@@ -77,7 +78,6 @@ const AddPost: FC = () => {
 
         if (validate(reqObject)) {
             mutate(reqObject);
-            if (isSuccess) clearForm();
         }
         
     };
