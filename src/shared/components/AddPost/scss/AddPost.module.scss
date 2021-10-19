@@ -1,6 +1,7 @@
 @use '../../../../styles/components/form-elements';
 @use '../../../../styles/components/form-group';
 @use '../../../../styles//components/message';
+@use '../../../../styles/components/button';
 
 .addPostComponent {
     &__formGroup {
@@ -31,5 +32,15 @@
     &__messageSuccess {
         @extend .message;
         @extend .message--success;
+    }
+
+    &__buttonSubmit {
+        @extend .button;
+
+        margin-right: 0.75rem;
+    }
+
+    &__buttonClear {
+        @extend .button;
     }
 }
