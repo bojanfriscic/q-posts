@@ -13,11 +13,14 @@ const getComments = () => apiInstance.get<Array<IComment>>('/comments').then(res
 
 const postPost = (postObject: IPost) => apiInstance.post<IPost>('/posts', postObject).then(response => response.data);
 
+const putPost = (postObject: IPost) => apiInstance.put<IPost>(`/posts/${postObject.id}`, postObject).then(response => response.data);
+
 const api = {
     getPosts,
     getUsers,
     getComments,
-    postPost
+    postPost,
+    putPost
 };
 
 export default api;

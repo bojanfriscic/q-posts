@@ -1,7 +1,52 @@
+@use '../../../../styles/components/button';
+@use '../../../../styles/components/form-group';
+@use '../../../../styles/components/form-elements';
+@use '../../../../styles/components/message';
+
 .singlePostPage {
+    &__editModeToggle {
+        display: flex;
+        justify-content: flex-end;
+        padding-top: 3rem;
+    }
+
+    &__editModeToggleButton {
+        @extend .button;
+    }
+
     &__commentsHeading {
         display: flex;
         justify-content: space-between;
         margin-bottom: 3rem;
+    }
+
+    &__formGroup {
+        @extend .form-group;
+    }
+
+    &__input {
+        @extend .input;
+    }
+
+    &__select {
+        @extend .select;
+    }
+
+    &__textarea {
+        @extend .textarea;
+    }
+
+    &__submitButton {
+        @extend .button;
+    }
+
+    &__messageSuccess {
+        @extend .message;
+        @extend .message--success;
+    }
+
+    &__messageFailure {
+        @extend .message;
+        @extend .message--error;
     }
 }
