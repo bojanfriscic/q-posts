@@ -3,7 +3,8 @@ import { useQueryClient, useMutation } from 'react-query';
 import { useParams } from 'react-router';
 import { api } from '../../../core/api';
 import { DataContext } from '../../../core/context/DataContext';
-import { ISinglePostRouteParams } from './model/ISinglePostRouteParam';
+import { SinglePostContext } from './context/SinglePostContext';
+import { ISinglePostRouteParams } from './model/interfaces';
 import { IComment } from '../../../core/interfaces/IComment';
 import { IUser } from '../../../core/interfaces/IUser';
 import { QUERY_KEYS } from '../../../core/enums/QueryKeysEnum';
@@ -129,32 +130,37 @@ const SinglePostPage: FC = () => {
         setUserId(userId);
     };
 
-    const propsData = {
+    const contextData = {
         id: +id,
         title,
         body,
-        userId,
-        setUserId,
         author,
-        comments,
+        userId,
         users,
+        handleSubmit,
+        handleOnChange,
+        handleUpdatePostData,
+        handleCloseMessage,
+        isEditMode,
+        setIsEditMode,
+    };
+
+    const propsData = {
+        id: +id,
+        comments,
         isPostLoading,
         hasPostError,
         isCommentsLoading,
         hasCommentsError,
-        isEditMode,
-        setIsEditMode,
-        handleUpdatePostData,
-        handleSubmit,
         isPostSubmitting,
         isSubmittingFailure,
-        isSubmittingSuccess,
-        handleCloseMessage,
-        handleOnChange
+        isSubmittingSuccess
     };
 
     return (
-        <SinglePostPageUI {...propsData} />
+        <SinglePostContext.Provider value={contextData}>
+            <SinglePostPageUI {...propsData} />
+        </SinglePostContext.Provider>
     );
 };
 

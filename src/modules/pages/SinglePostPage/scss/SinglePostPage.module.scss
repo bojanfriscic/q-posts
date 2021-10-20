@@ -3,50 +3,48 @@
 @use '../../../../styles/components/form-elements';
 @use '../../../../styles/components/message';
 
-.singlePostPage {
-    &__editModeToggle {
-        display: flex;
-        justify-content: flex-end;
-        padding-top: 3rem;
-    }
+.editModeToggle {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 3rem;
+}
 
-    &__editModeToggleButton {
-        @extend .button;
-    }
+.editModeToggleButton {
+    @extend .button;
+}
 
-    &__commentsHeading {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 3rem;
-    }
+.commentsHeading {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+}
 
-    &__formGroup {
-        @extend .form-group;
-    }
+.formGroup {
+    @extend .form-group;
+}
 
-    &__input {
-        @extend .input;
-    }
+.input {
+    @extend .input;
+}
 
-    &__select {
-        @extend .select;
-    }
+.select {
+    @extend .select;
+}
 
-    &__textarea {
-        @extend .textarea;
-    }
+.textarea {
+    @extend .textarea;
+}
 
-    &__submitButton {
-        @extend .button;
-    }
+.submitButton {
+    @extend .button;
+}
 
-    &__messageSuccess {
-        @extend .message;
-        @extend .message--success;
-    }
+.messageSuccess {
+    @extend .message;
+    @extend .message--success;
+}
 
-    &__messageFailure {
-        @extend .message;
-        @extend .message--error;
-    }
+.messageFailure {
+    @extend .message;
+    @extend .message--error;
 }
