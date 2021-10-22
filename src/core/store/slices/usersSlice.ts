@@ -7,7 +7,8 @@ import { getUsers } from '../thunks/usersThunk';
 
 const initialUsers: IInitialState<IUser> = {
     data: [] as Array<IUser>,
-    status: REQUEST_STATUS.INACTIVE
+    status: REQUEST_STATUS.INACTIVE,
+    error: null
 };
 
 const usersSlice = createSlice({
@@ -24,6 +25,7 @@ const usersSlice = createSlice({
         },
         [getUsers.rejected.type]: state => {
             state.status = REQUEST_STATUS.REJECTED;
+            state.error = 'There was an error - users could not be fetched';
         }
     }
 });

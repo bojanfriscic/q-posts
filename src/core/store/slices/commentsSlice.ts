@@ -7,7 +7,8 @@ import { getComments } from '../thunks/commentsThunk';
 
 const initialComments: IInitialState<IComment> = {
     data: [],
-    status: REQUEST_STATUS.INACTIVE
+    status: REQUEST_STATUS.INACTIVE,
+    error: null
 };
 
 const commentsSlice = createSlice({
@@ -24,6 +25,7 @@ const commentsSlice = createSlice({
         },
         [getComments.rejected.type]: state => {
             state.status = REQUEST_STATUS.REJECTED
+            state.error = 'There was an error - comments could not be fetched';
         }
     }
 });

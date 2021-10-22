@@ -7,7 +7,8 @@ import { getPosts } from '../thunks/postsThunk';
 
 const initialPosts: IInitialState<IPost> = {
     data: [],
-    status: REQUEST_STATUS.INACTIVE
+    status: REQUEST_STATUS.INACTIVE,
+    error: null
 };
 
 const postsSlice = createSlice({
@@ -24,6 +25,7 @@ const postsSlice = createSlice({
         },
         [getPosts.rejected.type]: state => {
             state.status = REQUEST_STATUS.REJECTED;
+            state.error = 'There was an error - posts could not be fetched';
         }
     }
 });
