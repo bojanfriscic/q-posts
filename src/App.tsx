@@ -1,7 +1,10 @@
-function App() {
+import { FC } from 'react';
+import { StoreProvider } from './core/hoc/StoreProvider';
+
+const App: FC = () => {
   return (
     <div className="App">
-      app test
+      <StoreProvider />
     </div>
   );
 }

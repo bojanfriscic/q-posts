@@ -1,0 +1,1 @@
+export type TRequestStatus = 'inactive' | 'pending' | 'fulfilled' | 'rejected';
