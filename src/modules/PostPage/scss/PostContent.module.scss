@@ -1,0 +1,25 @@
+@use '../../../styles/base/colors' as c;
+@use '../../../styles/components/headings';
+
+.base {
+    margin-bottom: 3rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid c.$secondary;
+}
+
+.heading {
+    @extend .mainHeading;
+}
+
+.meta {
+    margin-bottom: 0.75rem;
+    padding: 0 0.5rem;
+
+    &__author {
+        font-weight: 700;
+    }
+}
+
+.body {
+    padding: 0 0.5rem 1.5rem;
+}

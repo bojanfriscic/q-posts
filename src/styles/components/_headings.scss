@@ -1,10 +1,20 @@
 @use '../base/colors' as c;
 
+$border: 1px dashed c.$secondary;
+
 .mainHeading {
     margin-bottom: 1em;
     padding-bottom: 1em;
-    border-bottom: 1px dashed c.$secondary;
+    border-bottom: $border;
     font-size: 2.25rem;
+    font-weight: 700;
+}
+
+.subHeading {
+    margin-bottom: 1em;
+    padding-bottom: 1em;
+    border-bottom: $border;
+    font-size: 1.5rem;
     font-weight: 700;
 }
 

@@ -1,0 +1,38 @@
+@use '../../../styles/base/colors' as c;
+@use '../../../styles/components/headings';
+@use '../../../styles/components/link';
+
+%content {
+    padding: 0 0.5rem;
+}
+
+.base {
+    padding-bottom: 1.5rem;
+
+    &:not(:last-child) {
+        margin-bottom: 1.5rem;
+        border-bottom: 1px solid c.$secondary;
+    }
+}
+
+.heading {
+    @extend .itemHeading;
+}
+
+.body {
+    @extend %content;
+}
+
+.meta {
+    @extend %content;
+
+    &__author {
+        @extend .link;
+
+        color: c.$highlight;
+
+        &:hover {
+            color: c.$secondary;
+        }
+    }
+}
