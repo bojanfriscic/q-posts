@@ -1,0 +1,12 @@
+@use '../../../styles/base/colors' as c;
+@use '../../../styles/components/form';
+
+.base {
+    margin-bottom: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px dashed c.$secondary;
+}
+
+.input {
+    @extend .input;
+}

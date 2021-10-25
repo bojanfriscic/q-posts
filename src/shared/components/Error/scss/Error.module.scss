@@ -1,0 +1,8 @@
+@use '../../../../styles/base/colors' as c;
+
+.base {
+    background-color: c.$danger;
+    padding: 1.5rem;
+    border-radius: 3px;
+    color: c.$white;
+}

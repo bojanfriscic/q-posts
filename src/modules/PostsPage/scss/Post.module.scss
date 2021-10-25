@@ -1,0 +1,49 @@
+@use '../../../styles/base/colors' as c;
+@use '../../../styles/components/headings';
+@use '../../../styles/components/link';
+
+.base {
+    padding: 1.5rem 0.5rem;
+    border-bottom: 1px solid c.$primary;
+
+    &:not(:last-child) {
+        margin-bottom: 1.5rem;
+    }
+}
+
+.heading {
+    @extend .itemHeading;
+
+    margin-top: 0;
+
+    &__link {
+        @extend .link;
+        color: c.$secondary;
+
+        &:hover {
+            color: c.$highlight;
+        }
+    }
+}
+
+.meta {
+    display: flex;
+    justify-content: space-between;
+}
+
+.author {
+    font-weight: 700;
+}
+
+.commentsBadge {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 1.5em;
+    height: 1.5em;
+    background-color: c.$secondary;
+    margin-left: 1em;
+    border-radius: 50%;
+    color: c.$white;
+    font-weight: 700;
+}
