@@ -1,20 +1,40 @@
 @use '../../../../styles/base/colors' as c;
 @use '../../../../styles/elements/link';
 
+%link {
+    @extend %a;
+
+    display: inline-block;
+    color: c.$white;
+    font-weight: 700;
+
+    &:hover {
+        color: c.$highlight;
+    }
+
+    &:not(:last-child) {
+        margin-right: 0.75rem;
+    }
+}
+
 .element {
     background-color: c.$primary;
     margin-bottom: 3rem;
     padding: 1.5rem 0;
 }
 
-.link {
-    @extend %a;
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-    color: c.$white;
+.navLink {
+    @extend %link;
+}
+
+.brandLink {
+    @extend %link;
+
     font-size: 1.5rem;
-    font-weight: 700;
-
-    &:hover {
-        color: c.$highlight;
-    }
 }

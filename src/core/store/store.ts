@@ -1,15 +1,17 @@
 import { configureStore } from '@reduxjs/toolkit';
 import postsReducer from './slices/postsSlice';
 import usersReducer from './slices/usersSlice';
-import commentsSlice from './slices/commentsSlice';
-import postsArchiveSlice from './slices/postsArchiveSlice';
+import commentsReducer from './slices/commentsSlice';
+import postsArchiveReducer from './slices/postsArchiveSlice';
+import currentUserReducer from './slices/currentUserSlice';
 
 export const store = configureStore({
     reducer: {
         posts: postsReducer,
-        postsArchive: postsArchiveSlice,
+        postsArchive: postsArchiveReducer,
         users: usersReducer,
-        comments: commentsSlice
+        currentUser: currentUserReducer,
+        comments: commentsReducer
     }
 });
 

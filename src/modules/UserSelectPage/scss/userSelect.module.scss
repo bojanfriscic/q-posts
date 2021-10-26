@@ -1,0 +1,12 @@
+@use '../../../styles/components/form';
+@use '../../../styles/components/button';
+
+.select {
+    @extend .select;
+
+    margin-bottom: 0.75rem;
+}
+
+.button {
+    @extend .button;
+}
