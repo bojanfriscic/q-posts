@@ -4,6 +4,6 @@
 .base {
     @extend .message;
 
-    background-color: c.$danger;
-    color: c.$white;
+    background-color: c.$success;
+    color: c.$primary;
 }

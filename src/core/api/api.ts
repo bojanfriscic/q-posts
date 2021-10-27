@@ -3,6 +3,7 @@ import { IPost } from '../interfaces/IPost';
 import { IUser } from '../interfaces/IUser';
 import { IComment } from '../interfaces/IComment';
 import { IPostArchiveItem } from '../interfaces/IPostArchiveItem';
+import { ICurrentUser } from '../interfaces/ICurrentUser';
 
 const apiInstance = axios.create({
     baseURL: 'https://jsonplaceholder.typicode.com'
@@ -48,12 +49,21 @@ const getPostsArchive = async () => {
     return postsArchive;
 }
 
+const putUser = (data: IUser | ICurrentUser) => apiInstance.put<IUser | ICurrentUser>(`/users/${data.id}`, {
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8'
+        },
+        body: {...data}
+    })
+    .then(response => response.data);
+
 const posts = {
     get: getPosts
 };
 
 const users = {
-    get: getUsers
+    get: getUsers,
+    put: putUser
 };
 
 const comments = {

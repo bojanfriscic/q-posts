@@ -6,6 +6,7 @@ import { api } from '../../../core/api';
 import { QUERY_KEYS } from '../../../core/enums/queryKeys';
 import { Loading } from '../../../shared/components/Loading';
 import { Error } from '../../../shared/components/Error';
+import { Success } from '../../../shared/components/Success';
 import userSelect from '../scss/userSelect.module.scss';
 
 const UserSelect: FC = () => {
@@ -49,12 +50,16 @@ const UserSelect: FC = () => {
     const renderError = !isLoading && isError && <Error />;
 
     const renderForm = !isLoading && !isError && data && data.length > 0 && (
-        <form onSubmit={e => handleSubmit(e)}>
+        <form 
+            onSubmit={e => handleSubmit(e)}
+            className={isSuccess ? userSelect.formHasMessage : ''}
+        >
             <select
                 className={userSelect.select}
                 onChange={e => handleOnChange(e)}
+                defaultValue={defaultSelected}
             >
-                <option value={-1} disabled selected>Select an user</option>
+                <option value={defaultSelected} disabled>Select an user</option>
                 {data.map(user => (
                     <option key={user.id} value={user.id}>
                         {`${user.name} (${user.username})`}
@@ -64,6 +69,7 @@ const UserSelect: FC = () => {
             <button 
                 type="submit"
                 className={userSelect.button}
+                disabled={userId === defaultSelected}
             >
                 Select User
             </button>
@@ -74,9 +80,7 @@ const UserSelect: FC = () => {
         <Error message={'There are no users to load.'} />
     );
 
-    const renderSuccess = isSuccess && isSuccessMessage && (
-        <p>{isSuccessMessage}</p>
-    );
+    const renderSuccess = isSuccess && isSuccessMessage && <Success message={isSuccessMessage} />;
     
     return (
         <>

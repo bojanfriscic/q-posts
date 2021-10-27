@@ -5,12 +5,14 @@
     margin-bottom: 1.5rem;
 }
 
-.select {
-    @extend .select;
-
-    margin-bottom: 0.75rem;
+.formGroup {
+    @extend .formGroup;
 }
 
 .button {
     @extend .button;
+
+    &:not(:last-child) {
+        margin-right: 1rem;
+    }
 }

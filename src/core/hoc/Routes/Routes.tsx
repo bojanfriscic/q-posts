@@ -4,6 +4,7 @@ import { ROUTES } from '../../enums/routes';
 import { PostsPage } from '../../../modules/PostsPage';
 import { PostPage } from '../../../modules/PostPage';
 import { UserSelectPage } from '../../../modules/UserSelectPage';
+import { UserEditPage } from '../../../modules/UserEditPage';
 import { ErrorPage } from '../../../modules/ErrorPage';
 
 const Routes: FC = () => {
@@ -28,6 +29,11 @@ const Routes: FC = () => {
                 exact
                 path={ROUTES.USER_SELECT}
                 render={() => <UserSelectPage />}
+            />
+            <Route 
+                exact
+                path={ROUTES.USER_EDIT}
+                render={() => <UserEditPage />}
             />
             <Route 
                 path={ROUTES.ERROR}
